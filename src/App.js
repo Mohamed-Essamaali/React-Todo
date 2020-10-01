@@ -1,6 +1,7 @@
 import React from 'react';
-import TodoForm from './components/TodoForm';
+
 import TodoList from './components/TodoList'
+import TodoForm from './components/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -9,9 +10,25 @@ class App extends React.Component {
   constructor(){
     super();
     this.state={
-      todoList:[]
+      todoList:[{name:'',selected:false}]
     }
   }
+
+  toggleTodo = todoId=>{
+    this.setState({
+      todoList: this.state.toggleTodo.map(todo=>{
+        if(todoId===todo.id){
+          return {
+            ...todo,selected: !todo.selected
+          };
+        }
+        return todo
+
+      })
+    })
+
+  }
+
   addTodo = todoName =>{
     let newTodo = {
       name:todoName,
@@ -23,14 +40,24 @@ class App extends React.Component {
       todoList: [...this.state.todoList,newTodo]
     }
    )
+   console.log('new todo in app.js', newTodo)
 
   }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoList={this.state.todoList}/>
-        <TodoForm addTodo={this.addTodo}/>
+        <TodoList 
+          toggleTodo={this.toggleTodo} 
+          todoList={this.state.todoList}
+        />
+
+        <TodoForm 
+          addTodo={this.addTodo}
+        />
+       
+        
       </div>
     );
   }

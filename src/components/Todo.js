@@ -1,24 +1,24 @@
 import React from 'react'
-import TodoForm from './TodoForm'
+
 
 class Todo extends React.Component{
 
-    constructor(){
-        super();
+    // constructor(){
+    //     super();
 
-        this.state={
-            todo:''
-        }
-    }
+    //     this.state={
+    //         todo:''
+    //     }
+    // }
  
     render(){
 
         return(
-        <div onClick={()=>this.toggleTodo(this.state.todo.id)}
-        className={`todo${this.state.todo.selected? ' selected':''}`}
+        <div onClick={()=>this.props.toggleTodo(this.props.todo.id)}
+         className={`todo${this.props.selected ? ' selected':''}`}
         >   
 
-         <p className='todo '>{this.state.todo}</p>
+         <p className='todo '>{this.props.name}</p>
        
     </div>)
     }
