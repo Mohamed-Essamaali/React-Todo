@@ -1,0 +1,10 @@
+.todo {
+
+    border:2px solid green;
+    width:45vw;
+
+}
+
+.todo .selected {
+    text-decoration: line-through;
+}
