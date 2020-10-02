@@ -12,9 +12,10 @@ class TodoList extends React.Component{
         render(){
 
             return(
-                <div>
+                <div className='todoList'>
                     {this.props.todoList.map(todo=>{
-                       return <Todo key={todo.id} todo={this.props.todo} toggleTodo={this.props.toggleTodo}/>
+                        console.log('todo in todolist',todo)
+                       return <Todo key={todo.id} todo={todo} toggleTodo={this.props.toggleTodo}/>
                     })
 
                     }

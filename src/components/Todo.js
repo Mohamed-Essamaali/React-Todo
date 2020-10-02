@@ -3,22 +3,16 @@ import React from 'react'
 
 class Todo extends React.Component{
 
-    // constructor(){
-    //     super();
 
-    //     this.state={
-    //         todo:''
-    //     }
-    // }
  
     render(){
 
         return(
         <div onClick={()=>this.props.toggleTodo(this.props.todo.id)}
-         className={`todo${this.props.selected ? ' selected':''}`}
+         className={`todo${this.props.todo.selected ? ' selected':''}`}
         >   
-
-         <p className='todo '>{this.props.name}</p>
+            
+         <p>{this.props.todo.name}</p>
        
     </div>)
     }

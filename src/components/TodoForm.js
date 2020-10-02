@@ -17,7 +17,7 @@ class TodoForm extends React.Component{
 
         this.props.addTodo(this.state.newtodo);
         console.log('form submitted', this.state.newtodo)
-        this.setState({newtodo:''})
+        this.setState({...this.state,newtodo:""})
     }
     render(){
         return(<div>
